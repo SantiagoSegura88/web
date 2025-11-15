@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Detector de Manos (JS + Backend Java)</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Detector de Manos y Dedos (cliente)</h1>
+    <p class="description">La detección se ejecuta en el navegador con MediaPipe JS. Estado enviado al backend Java.</p>
+
+    <div class="camera-selector">
+      <label for="camSelect">Seleccionar cámara:</label>
+      <select id="camSelect"></select>
+      <button id="startBtn">Iniciar</button>
+    </div>
+
+    <div class="content">
+      <div class="video-box">
+        <video id="video" playsinline></video>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="info-box">
+        <h2>Estado de detección</h2>
+        <table>
+          <tr><th>Mano</th><th>Estado</th><th>Dedos</th></tr>
+          <tr><td>Izquierda</td><td id="leftStatus">-</td><td id="leftFingers">-</td></tr>
+          <tr><td>Derecha</td><td id="rightStatus">-</td><td id="rightFingers">-</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
